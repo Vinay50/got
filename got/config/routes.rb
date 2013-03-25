@@ -1,4 +1,10 @@
 Got::Application.routes.draw do
+  devise_for :users
+  root :to  => 'articles#index'
+
+  resources :articles
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
