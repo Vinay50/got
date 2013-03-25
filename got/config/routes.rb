@@ -1,8 +1,12 @@
 Got::Application.routes.draw do
-  devise_for :users
+  
   root :to  => 'articles#index'
 
   resources :articles
+  devise_for :users, controllers: { confirmations: "confirmations" } do
+  put "confirm_user", to: "confirmations#confirm_user"
+  get "confirmation", to: "confirmations#show"
+end
 
 
   # The priority is based upon order of creation:
